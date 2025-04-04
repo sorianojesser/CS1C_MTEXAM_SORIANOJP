@@ -1,0 +1,33 @@
+let DSA = []; let WebDev = [];
+
+function enrollStudent(subjectArray) { let studentName = prompt("Enter student name to enroll:"); subjectArray.push(studentName); console.log(${studentName} has been enrolled.); }
+
+function unenrollStudent(subjectArray) { console.log("Currently enrolled students:", subjectArray); let studentName = prompt("Enter student name to unenroll:"); let index = subjectArray.indexOf(studentName); if (index !== -1) { subjectArray.splice(index, 1); console.log(${studentName} has been removed.); } else { console.log("Student not found."); } }
+
+function selectSubject() { let choice = prompt("Select Subject:\n(A) DSA\n(B) WebDev"); return choice.toUpperCase() === 'A' ? DSA : WebDev; }
+
+function main() { while (true) { let subjectArray = selectSubject(); let operation = prompt("Select Operation:\n(A) Enroll\n(B) Unenroll\n(C) Select Another Subject\n(D) Exit");
+
+switch (operation.toUpperCase()) {
+        case 'A':
+            enrollStudent(subjectArray);
+            break;
+        case 'B':
+            unenrollStudent(subjectArray);
+            break;
+        case 'C':
+            continue;
+        case 'D':
+            console.log("Final Enrollment:");
+            console.log("DSA:", DSA);
+            console.log("WebDev:", WebDev);
+            return;
+        default:
+            console.log("Invalid choice. Try again.");
+    }
+}
+
+}
+
+main();
+
